@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LOMS Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('/index/images/background1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    .background-blur {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      filter: blur(8px);
+      z-index: -3;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -2;
+    }
+
+    .navbar {
+      height: 60px;
+      animation: slideInNavbar 1s ease-out;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    @keyframes slideInNavbar {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      transition: 0.3s ease-in-out;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding-top: 70px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-blur"></div>
+  <div class="overlay"></div>
+
+  <!-- Fixed Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">LOMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="customers.html">Customer Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="loan_application.html">Loan Application</a></li>
+          <li class="nav-item"><a class="nav-link" href="credit_evaluation.html">Credit Evaluation</a></li>
+          <li class="nav-item"><a class="nav-link" href="loan_disbursal.html">Loan Disbursal</a></li>
+          <li class="nav-item"><a class="nav-link" href="repayment.html">Repayment Management</a></li>
+        </ul>
+        <span class="navbar-text me-3" id="welcomeUser">Welcome, User</span>
+        <a href="login_signup.html" class="btn btn-outline-light">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="container">
+    <h2 class="text-center mb-4" style="color: white;">Dashboard</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card text-center h-100">
+          <div class="card-body">
+            <h5 class="card-title">Customer Management</h5>
+            <p class="card-text">Manage customer profiles and loan applicants.</p>
+            <a href="customers.html" class="btn btn-primary">Go</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center h-100">
+          <div class="card-body">
+            <h5 class="card-title">Loan Application</h5>
+            <p class="card-text">Submit and track loan applications.</p>
+            <a href="loan_application.html" class="btn btn-secondary">Go</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center h-100">
+          <div class="card-body">
+            <h5 class="card-title">Credit Evaluation</h5>
+            <p class="card-text">Evaluate credit scores based on financial data.</p>
+            <a href="credit_evaluation.html" class="btn btn-info">Go</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center h-100">
+          <div class="card-body">
+            <h5 class="card-title">Loan Disbursal</h5>
+            <p class="card-text">Approve and disburse loans to customers.</p>
+            <a href="loan_disbursal.html" class="btn btn-success">Go</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center h-100">
+          <div class="card-body">
+            <h5 class="card-title">Repayment Management</h5>
+            <p class="card-text">Track repayments and manage overdue accounts.</p>
+            <a href="repayment.html" class="btn btn-warning">Go</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Simulated login user -->
+  <script>
+    const userName = localStorage.getItem('loggedInUser') || 'User';
+    document.getElementById('welcomeUser').textContent = 'Welcome, ' + userName;
+  </script>
+</body>
+</html>
